@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="movieVeiwModel"
+            type="com.example.rrlmovie.overview.MovieVeiwModel" />
+
+        <variable
+            name="overViewDetailFragment"
+            type="com.example.rrlmovie.overview.OverViewDetailFragment" />
+
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/moviePosterDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    app:photoUrl="@{movieVeiwModel.moviePoster}" />
+
+
+                <TextView
+                    android:id="@+id/titleDetail"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:padding="7dp"
+                    android:background="@drawable/shape_details"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{movieVeiwModel.movieTitle}" />
+
+                <TextView
+                    android:id="@+id/decriptionDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/moviePosterDetail"
+                    android:layout_marginTop="10dp"
+                    android:padding="7dp"
+                    android:text="@{movieVeiwModel.movieDetail}" />
+            </RelativeLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+
+</layout>
