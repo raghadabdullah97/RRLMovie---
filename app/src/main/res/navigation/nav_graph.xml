@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/overViewDetailFragment"
         android:name="com.example.rrlmovie.overview.OverViewDetailFragment"
-        android:label="fragment_over_view_detail"
+        android:label="Movie Info"
         tools:layout="@layout/fragment_over_view_detail" >
         <argument
             android:name="id"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/overViewFragment"
         android:name="com.example.rrlmovie.overview.OverViewFragment"
-        android:label="OverViewFragment" >
+        android:label="Movies " >
         <action
             android:id="@+id/action_overViewFragment_to_overViewDetailFragment"
             app:destination="@id/overViewDetailFragment" />

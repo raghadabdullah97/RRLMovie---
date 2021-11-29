@@ -39,14 +39,14 @@
 
                 <TextView
                     android:id="@+id/titleDetail"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:padding="7dp"
-                    android:background="@drawable/shape_details"
-                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{movieVeiwModel.movieTitle}" />
+                    android:background="@drawable/shape_details"
+                    android:padding="7dp"
+                    android:text="@{movieVeiwModel.movieTitle}"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/decriptionDetails"
@@ -55,7 +55,9 @@
                     android:layout_below="@+id/moviePosterDetail"
                     android:layout_marginTop="10dp"
                     android:padding="7dp"
-                    android:text="@{movieVeiwModel.movieDetail}" />
+                    android:text="@{movieVeiwModel.movieDetail}"
+                    android:textColor="#CDC1BFBF"
+                    android:textStyle="bold" />
             </RelativeLayout>
 
         </ScrollView>
