@@ -6,8 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rrlmovie.network.GenersData
-import com.example.rrlmovie.network.GenresItem
+
 import com.example.rrlmovie.network.MovieApi
 import com.example.rrlmovie.network.ResultsItem
 import kotlinx.coroutines.launch
@@ -44,11 +43,11 @@ class MovieVeiwModel : ViewModel() {
         getMovieList()
     }
 
-    private fun getMovieList() {
+     fun getMovieList() {
         viewModelScope.launch {
             _status.value = MoviesApiStatus.LOADING
             try {
-                val listResult = MovieApi.retrofitService.getMovieList(3).results
+                val listResult = MovieApi.retrofitService.getMovieList().results
                 _photos.value = listResult
                 _status.value = MoviesApiStatus.DONE
             } catch (e: Exception) {
@@ -59,13 +58,23 @@ class MovieVeiwModel : ViewModel() {
         }
     }
 
-    private fun getMovieGenersList(filter: MovieApiFilter) {
+     fun getMovieGenersList(filter: MovieApiFilter) {
 
-        viewModelScope.launch {
-           val listOfGeners = MovieApi.retrofitService.getMovieGenersList(filter.generId).results
-            _movieList.value = listOfGeners
+//        viewModelScope.launch {
+//           val listOfGeners = MovieApi.retrofitService.getMovieGenersList(filter.generId).results
+//            _movieList.value = listOfGeners
+         viewModelScope.launch {
+             _status.value = MoviesApiStatus.LOADING
+             try {
+                 val listResult = MovieApi.retrofitService.getMovieGenersList(filter.generId).results
+                 _photos.value = listResult
+                 _status.value = MoviesApiStatus.DONE
+             } catch (e: Exception) {
+                 _status.value = MoviesApiStatus.ERROR
+                 _photos.value = listOf()
 
-        }
+             }
+         }
     }
     enum class MovieApiFilter(val generId: Int ) {
         ACTION(12),
@@ -73,8 +82,9 @@ class MovieVeiwModel : ViewModel() {
         DRAMA(17),
         CRIME(80), }
 
-    fun updateFilter(filter: MovieApiFilter) {
-        getMovieGenersList(filter)
+    fun updateFilter(filter: MovieApiFilter ) {
+      getMovieGenersList(filter)
+
     }
 
 

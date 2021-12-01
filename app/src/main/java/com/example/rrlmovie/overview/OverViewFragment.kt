@@ -31,7 +31,7 @@ override fun onCreateView(
     return binding.root
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.gener_menu, menu)
+        inflater.inflate(R.menu.genres_menu, menu)
         val actionButton = menu.findItem(R.id.option_12)
         val animmationButton = menu.findItem(R.id.option_16)
         val dramaButton = menu.findItem(R.id.option_18)
@@ -43,49 +43,17 @@ override fun onCreateView(
     }
 
 //
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return when (item.itemId) {
-//            R.id.option_12 -> {
-////                viewModel.clearList()
-//                for (i in 0 until viewModel.photos.value?.size!!){
-//                    if (12 !in viewModel.photos.value!![i]!!.genreIds!!){
-//                            viewModel.addToList(i)
-//                    }
-//                }
-//                    reenterTransition
-//                return true
-//            }R.id.option_80 -> {
-//                viewModel.clearList()
-//                for (i in 0 until viewModel.photos.value?.size!!){
-//                    if (viewModel.photos.value!![i]!!.genreIds!!.contains(80)){
-//                            viewModel.addToList(i)
-//                    }
-//                }
-//
-//                return true
-//            }R.id.option_18 -> {
-//                viewModel.clearList()
-//                for (i in 0 until viewModel.photos.value?.size!!){
-//                    if (viewModel.photos.value!![i]!!.genreIds!!.contains(18)){
-//                            viewModel.addToList(i)
-//                    }
-//                }
-//
-//                return true
-//            }R.id.option_16 -> {
-//                viewModel.clearList()
-//                for (i in 0 until viewModel.photos.value?.size!!){
-//                    if (viewModel.photos.value!![i]!!.genreIds!!.contains(16)){
-//                            viewModel.addToList(i)
-//                    }
-//                }
-//
-//                return true
-//            }
-//
-//            else -> super.onOptionsItemSelected(item)
-//        }
-//    }
-
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    viewModel.updateFilter(
+        when (item.itemId) {
+            R.id.option_18 -> MovieVeiwModel.MovieApiFilter.DRAMA
+            R.id.option_16 -> MovieVeiwModel.MovieApiFilter.ANIMATION
+            R.id.option_80 -> MovieVeiwModel.MovieApiFilter.CRIME
+            R.id.option_12 -> MovieVeiwModel.MovieApiFilter.ACTION
+            else -> MovieVeiwModel.MovieApiFilter.ACTION
+        }
+    )
+    return true
+    }
 }
+
