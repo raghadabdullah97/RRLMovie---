@@ -44,15 +44,20 @@ override fun onCreateView(
 
 //
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    viewModel.updateFilter(
+
         when (item.itemId) {
-            R.id.option_18 -> MovieVeiwModel.MovieApiFilter.DRAMA
-            R.id.option_16 -> MovieVeiwModel.MovieApiFilter.ANIMATION
-            R.id.option_80 -> MovieVeiwModel.MovieApiFilter.CRIME
-            R.id.option_12 -> MovieVeiwModel.MovieApiFilter.ACTION
-            else -> MovieVeiwModel.MovieApiFilter.ACTION
+            R.id.option_18 -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.DRAMA)
+            R.id.option_16 -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.ANIMATION)
+            R.id.option_80 -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.CRIME)
+            R.id.option_12 -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.ACTION)
+            R.id.top_rated -> viewModel.getMovieList("top_rated")
+            R.id.popular -> viewModel.getMovieList("popular")
+            R.id.latest -> viewModel.getMovieList("latest")
+            R.id.now_playing -> viewModel.getMovieList("now_playing")
+            R.id.upcoming -> viewModel.getMovieList("upcoming")
+           else -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.ACTION, 1)
         }
-    )
+
     return true
     }
 }

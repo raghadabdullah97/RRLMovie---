@@ -6,4 +6,9 @@
     <string name="crime">Crime</string>
     <string name="animation">Animation</string>
     <string name="showall">showAll</string>
+    <string name="latest">latest</string>
+    <string name="now_playing">now_playing</string>
+    <string name="popular">popular</string>
+    <string name="top_rated">top_rated</string>
+    <string name="upcoming">upcoming</string>
 </resources>

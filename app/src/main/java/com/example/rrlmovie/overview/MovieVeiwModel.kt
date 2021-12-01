@@ -43,11 +43,11 @@ class MovieVeiwModel : ViewModel() {
         getMovieList()
     }
 
-     fun getMovieList() {
+     fun getMovieList(type: String = "upcoming") {
         viewModelScope.launch {
             _status.value = MoviesApiStatus.LOADING
             try {
-                val listResult = MovieApi.retrofitService.getMovieList().results
+                val listResult = MovieApi.retrofitService.getMovieList(type).results
                 _photos.value = listResult
                 _status.value = MoviesApiStatus.DONE
             } catch (e: Exception) {
@@ -58,8 +58,10 @@ class MovieVeiwModel : ViewModel() {
         }
     }
 
+    /**
+     * take the list bases on the quer input
+     */
      fun getMovieGenersList(filter: MovieApiFilter) {
-
 //        viewModelScope.launch {
 //           val listOfGeners = MovieApi.retrofitService.getMovieGenersList(filter.generId).results
 //            _movieList.value = listOfGeners
@@ -76,14 +78,38 @@ class MovieVeiwModel : ViewModel() {
              }
          }
     }
+
+//    fun getMovieSortedBy(type: String){
+//        viewModelScope.launch {
+//            _status.value = MoviesApiStatus.LOADING
+//            try {
+//                val listResult = MovieApi.retrofitService.sortMovieList(filter.generId).results
+//                _photos.value = listResult
+//                _status.value = MoviesApiStatus.DONE
+//            } catch (e: Exception) {
+//                _status.value = MoviesApiStatus.ERROR
+//                _photos.value = listOf()
+//
+//            }
+//        }
+//    }
+
+    /**
+     * constant geners based on the website
+     */
     enum class MovieApiFilter(val generId: Int ) {
         ACTION(12),
         ANIMATION(16),
-        DRAMA(17),
+        DRAMA(18),
         CRIME(80), }
-
-    fun updateFilter(filter: MovieApiFilter ) {
-      getMovieGenersList(filter)
+    /**
+     * function called from the main fragment that connacted to the menu button
+     * and send it to  getMovieGenersList function
+     */
+    fun updateFilter(filter: MovieApiFilter, x:Int = 0 ) {
+        if (x ==1){ getMovieList()}
+        else {
+      getMovieGenersList(filter)}
 
     }
 
