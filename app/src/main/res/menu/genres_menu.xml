@@ -12,7 +12,7 @@
     <item android:id="@+id/showAll"
         android:title="@string/showall"/>
     <item
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:id="@+id/filters"
         android:titleCondensed="filters"
         android:title="filters"

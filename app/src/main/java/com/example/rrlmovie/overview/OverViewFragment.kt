@@ -55,7 +55,7 @@ override fun onCreateView(
             R.id.latest -> viewModel.getMovieList("latest")
             R.id.now_playing -> viewModel.getMovieList("now_playing")
             R.id.upcoming -> viewModel.getMovieList("upcoming")
-           else -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.ACTION, 1)
+           R.id.showAll -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.ACTION, 1)
         }
 
     return true
