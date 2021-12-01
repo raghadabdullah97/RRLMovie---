@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">RRLMovie</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drama">Drama</string>
+    <string name="adventure">Adventure</string>
+    <string name="crime">Crime</string>
+    <string name="animation">Animation</string>
+    <string name="showall">showAll</string>
+    <string name="latest">latest</string>
+    <string name="now_playing">now_playing</string>
+    <string name="popular">popular</string>
+    <string name="top_rated">top_rated</string>
+    <string name="upcoming">upcoming</string>
 </resources>

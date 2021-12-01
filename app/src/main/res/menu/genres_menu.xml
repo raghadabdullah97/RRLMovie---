@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/option_18"
+        android:title="@string/drama" />
+    <item android:id="@+id/option_12"
+        android:title="@string/adventure" />
+    <item android:id="@+id/option_80"
+        android:title="@string/crime" />
+    <item android:id="@+id/option_16"
+        android:title="@string/animation"/>
+    <item android:id="@+id/showAll"
+        android:title="@string/showall"/>
+    <item
+        app:showAsAction="always"
+        android:id="@+id/filters"
+        android:titleCondensed="filters"
+        android:title="filters"
+        android:icon="@drawable/ic_baseline_sort_24"
+        android:enabled="true">
+        <menu>
+            <item android:id="@+id/latest"
+                android:title="@string/latest">
+            </item>
+            <item android:id="@+id/now_playing"
+                android:title="@string/now_playing">
+            </item>
+            <item android:id="@+id/popular"
+                android:title="@string/popular">
+            </item>
+            <item android:id="@+id/top_rated"
+                android:title="@string/top_rated">
+            </item>
+            <item android:id="@+id/upcoming"
+                android:title="@string/upcoming">
+            </item>
+        </menu>
+    </item>
+</menu>
