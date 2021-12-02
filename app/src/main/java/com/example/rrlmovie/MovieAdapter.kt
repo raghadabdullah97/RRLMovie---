@@ -16,9 +16,9 @@ import com.example.rrlmovie.overview.OverViewFragmentDirections
 
 
 class MovieAdapter : ListAdapter<ResultsItem, MovieAdapter.MoviePhotosViewHolder>(DiffCallback)  {
-
-
-
+    /**
+     * prepare the positions of the views
+     */
     class MoviePhotosViewHolder(var binding: GridViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(moviePhoto: ResultsItem) {
             binding.item = moviePhoto
@@ -27,6 +27,9 @@ class MovieAdapter : ListAdapter<ResultsItem, MovieAdapter.MoviePhotosViewHolder
         var myImage = binding.myImage
     }
 
+    /**
+     * check the new and the old data taken from the API
+     */
     companion object DiffCallback : DiffUtil.ItemCallback<ResultsItem>() {
         override fun areItemsTheSame(oldItem: ResultsItem, newItem: ResultsItem): Boolean {
             return oldItem.id == newItem.id
@@ -37,6 +40,9 @@ class MovieAdapter : ListAdapter<ResultsItem, MovieAdapter.MoviePhotosViewHolder
         }
     }
 
+    /**
+     * on creationg the viewHolder takes the views from the [GridViewItemBinding]
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int
     ): MoviePhotosViewHolder {
         return MoviePhotosViewHolder(
@@ -44,6 +50,9 @@ class MovieAdapter : ListAdapter<ResultsItem, MovieAdapter.MoviePhotosViewHolder
         )
     }
 
+    /**
+     * binding the list of data to the item view
+     */
     override fun onBindViewHolder(holder: MoviePhotosViewHolder, position: Int) {
         val moviePhoto = getItem(position)
         holder.bind(moviePhoto)
@@ -52,6 +61,4 @@ class MovieAdapter : ListAdapter<ResultsItem, MovieAdapter.MoviePhotosViewHolder
             holder.itemView.findNavController().navigate(action)
         }
     }
-
-
 }

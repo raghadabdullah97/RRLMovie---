@@ -11,7 +11,6 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 private const val BASE_URL = "https://api.themoviedb.org"
-private const val generalList = "/genre/movie/list"
 
 private const val API_KEY = "a45bd525d7f3152d793dd5b9e91d8074"
 
@@ -25,20 +24,13 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-// for getting the data from the url
-
+/** for getting the data from the url
+ * */
 interface Movieurls {
     @GET("/3/movie/{sort}?api_key=${API_KEY}&language=en-US")
     suspend fun getMovieList(@Path("sort") sort: String) : Response
      @GET("/3/discover/movie?api_key=${API_KEY}")
      suspend fun getMovieGenersList(@Query("with_genres") genreId: Int) : Response
-
-//    suspend fun getMovieList(@path("page") page: Int) : Response
-    /**
-     * ============================ the path method is below =============================
-     */
-//    @GET("/3/movie/{id}?api_key=${API_KEY}&language=en-US")
-//    suspend fun getMovieList(@path("id") movieID: Int) : ItemResults
 }
 
 object MovieApi {

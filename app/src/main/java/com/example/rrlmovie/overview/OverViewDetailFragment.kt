@@ -14,7 +14,9 @@ class OverViewDetailFragment : Fragment() {
     var binding : FragmentOverViewDetailBinding? = null
     private val viewModel: MovieVeiwModel by activityViewModels()
 
-
+    /**
+     * recived the wanted movie id to show
+     */
     private var param: Int = 0 // before start
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,13 +24,17 @@ class OverViewDetailFragment : Fragment() {
             param = it.getInt("id")
         }
     }
-
+    /**
+     * connect its own view
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = FragmentOverViewDetailBinding.inflate(inflater, container, false)
         return binding!!.root
     }
-
+    /**
+     * conncet other classes and the functionality of data binding
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -38,6 +44,4 @@ class OverViewDetailFragment : Fragment() {
 
         viewModel.getMovieInfo(param)
     }
-
-
 }

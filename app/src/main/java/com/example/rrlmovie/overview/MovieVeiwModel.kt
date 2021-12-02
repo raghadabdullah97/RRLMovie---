@@ -1,12 +1,9 @@
 package com.example.rrlmovie.overview
 
-
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-
 import com.example.rrlmovie.network.MovieApi
 import com.example.rrlmovie.network.ResultsItem
 import kotlinx.coroutines.launch
@@ -15,10 +12,8 @@ import java.lang.Exception
 var gener = 0
 enum class MoviesApiStatus { LOADING, ERROR, DONE }
 
-
-
 class MovieVeiwModel : ViewModel() {
-
+/** declaring variables */
     private val _status = MutableLiveData<MoviesApiStatus>()
     val status: LiveData<MoviesApiStatus> = _status
 
@@ -34,15 +29,11 @@ class MovieVeiwModel : ViewModel() {
 
     private val _movieList = MutableLiveData<List<ResultsItem?>>()
     val movieList: LiveData<List<ResultsItem?>> = _movieList
-
-
-
-//    private val _photos = MutableLiveData<String>()
-//    val photos: LiveData<String> = _photos
+    /** the first thing that starts is calling from api */
     init {
         getMovieList()
     }
-
+    /**getting the movie based on the sort type */
      fun getMovieList(type: String = "upcoming") {
         viewModelScope.launch {
             _status.value = MoviesApiStatus.LOADING
@@ -53,11 +44,9 @@ class MovieVeiwModel : ViewModel() {
             } catch (e: Exception) {
                 _status.value = MoviesApiStatus.ERROR
                 _movieInfo.value = listOf()
-
             }
         }
     }
-
     /**
      * take the list bases on the quer input
      */
@@ -79,21 +68,6 @@ class MovieVeiwModel : ViewModel() {
          }
     }
 
-//    fun getMovieSortedBy(type: String){
-//        viewModelScope.launch {
-//            _status.value = MoviesApiStatus.LOADING
-//            try {
-//                val listResult = MovieApi.retrofitService.sortMovieList(filter.generId).results
-//                _photos.value = listResult
-//                _status.value = MoviesApiStatus.DONE
-//            } catch (e: Exception) {
-//                _status.value = MoviesApiStatus.ERROR
-//                _photos.value = listOf()
-//
-//            }
-//        }
-//    }
-
     /**
      * constant geners based on the website
      */
@@ -113,22 +87,10 @@ class MovieVeiwModel : ViewModel() {
 
     }
 
-
-//        fun addToList(i : Int){
-//         viewModelScope.launch {
-//         val listResult = MovieApi.retrofitService.getMovieList().results
-//        _photos.value?.plus(listResult?.get(i))}
-//    }
-
-    fun clearList(){
-        _movieInfo.value = listOf()
-    }
-
      fun getMovieInfo(index: Int) {
         val item = _movieInfo.value?.get(index)
         moviePoster.value = item?.posterPath
         movieTitle.value = item?.originalTitle
         movieDetail.value = item?.overview
-
     }
 }
