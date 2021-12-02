@@ -2,6 +2,9 @@ package com.example.rrlmovie.network
 
 import com.squareup.moshi.Json
 
+/**
+ * the data taken from the url
+ */
 data class Response(
 
     @Json(name="page")
@@ -16,7 +19,7 @@ data class Response(
     @Json(name="total_results")
     val totalResults: Int? = null
 )
-
+//the child data wanted for the project
 data class ResultsItem(
 
     @Json(name="overview")

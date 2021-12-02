@@ -11,13 +11,19 @@ import com.example.rrlmovie.databinding.FragmentOverViewBinding
 import com.example.rrlmovie.network.ResultsItem
 
 class OverViewFragment: Fragment() {
-
+    /**
+     * by activity view models used .....
+     */
 private val viewModel: MovieVeiwModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // make the options menu available
         setHasOptionsMenu(true)
     }
 
+    /**
+     * make the connection with the view and other classes
+     */
 override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
@@ -26,11 +32,16 @@ override fun onCreateView(
     val binding = FragmentOverViewBinding.inflate(inflater)
     binding.lifecycleOwner = this
     binding.viewModel = viewModel
-//       binding.photosGrid.adapter = com.example.contriesflagapi.PhotoGridAdapter()
+//       make the the connection with the adapter
     binding.photosGrid.adapter = MovieAdapter()
     return binding.root
     }
+
+    /**
+     * the below for future uses
+     */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
         inflater.inflate(R.menu.genres_menu, menu)
         val actionButton = menu.findItem(R.id.option_12)
         val animmationButton = menu.findItem(R.id.option_16)
@@ -42,7 +53,9 @@ override fun onCreateView(
         if (menuItem == null) {return}
     }
 
-//
+    /**
+     * here click listener for the menu buttons
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
@@ -52,7 +65,7 @@ override fun onCreateView(
             R.id.option_12 -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.ACTION)
             R.id.top_rated -> viewModel.getMovieList("top_rated")
             R.id.popular -> viewModel.getMovieList("popular")
-            R.id.latest -> viewModel.getMovieList("latest")
+            R.id.latest -> viewModel.getMovieList("upcoming")
             R.id.now_playing -> viewModel.getMovieList("now_playing")
             R.id.upcoming -> viewModel.getMovieList("upcoming")
            R.id.showAll -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.ACTION, 1)
