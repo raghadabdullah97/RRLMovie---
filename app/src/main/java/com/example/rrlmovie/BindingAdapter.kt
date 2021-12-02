@@ -11,6 +11,9 @@ import com.bumptech.glide.Glide
 import com.example.rrlmovie.network.ResultsItem
 import com.example.rrlmovie.overview.MoviesApiStatus
 
+/**
+ * assign custom bindingn to the view to translated the data taken from the API to the required Illustrate
+ */
 @BindingAdapter("photoUrl")
 fun ImageView.bind(photoUrl: String?) {
     Log.e("tag", "Starthere")
@@ -21,18 +24,12 @@ fun ImageView.bind(photoUrl: String?) {
             .placeholder(R.drawable.loading_animation)
             .error(R.drawable.ic_baseline_broken_image_24)
             .into(this)
-
-
-//        val imgUri =
-//            photoUrl.toUri().buildUpon().scheme("https" + "https://image.tmdb.org/t/p/w500/")
-//                .build()
-//        this.load(imgUri) {
-//            placeholder(R.drawable.loading_animation)
-//            error(R.drawable.ic_broken_image)
-//        }
     }
 }
 
+/**
+ * update the view on the main view based on the status predicted
+ */
 @BindingAdapter("movieApiStatus")
 fun bindStatus(statusImageView: ImageView,
                status: MoviesApiStatus?){
@@ -43,18 +40,16 @@ fun bindStatus(statusImageView: ImageView,
         }
         MoviesApiStatus.DONE ->{
             statusImageView.visibility = View.GONE
-//            statusImageView.setImageResource(R.drawable.ic_baseline_broken_image_24)
-
         }
         MoviesApiStatus.ERROR ->{
             statusImageView.visibility = View.GONE
             statusImageView.setImageResource(R.drawable.ic_baseline_broken_image_24)
         }
     }
-
-
 }
-
+/**
+ * the method updates the wnated view in the recycler view
+ */
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<ResultsItem>?) {
     val adapter = recyclerView.adapter as MovieAdapter

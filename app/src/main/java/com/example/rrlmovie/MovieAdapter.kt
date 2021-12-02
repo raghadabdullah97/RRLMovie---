@@ -1,5 +1,4 @@
 package com.example.rrlmovie
-
 import android.text.Layout
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,7 +12,6 @@ import com.example.rrlmovie.databinding.GridViewItemBinding
 import com.example.rrlmovie.network.ResultsItem
 import com.example.rrlmovie.overview.OverViewFragment
 import com.example.rrlmovie.overview.OverViewFragmentDirections
-
 
 class MovieAdapter : ListAdapter<ResultsItem, MovieAdapter.MoviePhotosViewHolder>(DiffCallback)  {
     /**
