@@ -26,7 +26,6 @@ class MovieAdapter : ListAdapter<ResultsItem, MovieAdapter.MoviePhotosViewHolder
         }
         var myImage = binding.myImage
     }
-
     /**
      * check the new and the old data taken from the API
      */
@@ -39,7 +38,6 @@ class MovieAdapter : ListAdapter<ResultsItem, MovieAdapter.MoviePhotosViewHolder
             return oldItem.posterPath == newItem.posterPath
         }
     }
-
     /**
      * on creationg the viewHolder takes the views from the [GridViewItemBinding]
      */
@@ -49,7 +47,6 @@ class MovieAdapter : ListAdapter<ResultsItem, MovieAdapter.MoviePhotosViewHolder
             GridViewItemBinding.inflate(LayoutInflater.from(parent.context))
         )
     }
-
     /**
      * binding the list of data to the item view
      */
