@@ -52,7 +52,7 @@ override fun onCreateView(
             R.id.option_12 -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.ACTION)
             R.id.top_rated -> viewModel.getMovieList("top_rated")
             R.id.popular -> viewModel.getMovieList("popular")
-            R.id.latest -> viewModel.getMovieList("latest")
+            R.id.latest -> viewModel.getMovieList("upcoming")
             R.id.now_playing -> viewModel.getMovieList("now_playing")
             R.id.upcoming -> viewModel.getMovieList("upcoming")
            R.id.showAll -> viewModel.updateFilter(MovieVeiwModel.MovieApiFilter.ACTION, 1)

@@ -29,8 +29,8 @@ class MovieVeiwModel : ViewModel() {
     val moviePoster = MutableLiveData<String>()
      var movieGener:MutableList<List<Int>?> = mutableListOf()
 
-    private val _photos = MutableLiveData<List<ResultsItem?>?>()
-    val photos: LiveData<List<ResultsItem?>?> = _photos
+    private val _movieInfo = MutableLiveData<List<ResultsItem?>?>()
+    val movieInfo: LiveData<List<ResultsItem?>?> = _movieInfo
 
     private val _movieList = MutableLiveData<List<ResultsItem?>>()
     val movieList: LiveData<List<ResultsItem?>> = _movieList
@@ -48,11 +48,11 @@ class MovieVeiwModel : ViewModel() {
             _status.value = MoviesApiStatus.LOADING
             try {
                 val listResult = MovieApi.retrofitService.getMovieList(type).results
-                _photos.value = listResult
+                _movieInfo.value = listResult
                 _status.value = MoviesApiStatus.DONE
             } catch (e: Exception) {
                 _status.value = MoviesApiStatus.ERROR
-                _photos.value = listOf()
+                _movieInfo.value = listOf()
 
             }
         }
@@ -69,11 +69,11 @@ class MovieVeiwModel : ViewModel() {
              _status.value = MoviesApiStatus.LOADING
              try {
                  val listResult = MovieApi.retrofitService.getMovieGenersList(filter.generId).results
-                 _photos.value = listResult
+                 _movieInfo.value = listResult
                  _status.value = MoviesApiStatus.DONE
              } catch (e: Exception) {
                  _status.value = MoviesApiStatus.ERROR
-                 _photos.value = listOf()
+                 _movieInfo.value = listOf()
 
              }
          }
@@ -121,11 +121,11 @@ class MovieVeiwModel : ViewModel() {
 //    }
 
     fun clearList(){
-        _photos.value = listOf()
+        _movieInfo.value = listOf()
     }
 
      fun getMovieInfo(index: Int) {
-        val item = _photos.value?.get(index)
+        val item = _movieInfo.value?.get(index)
         moviePoster.value = item?.posterPath
         movieTitle.value = item?.originalTitle
         movieDetail.value = item?.overview
