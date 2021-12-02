@@ -17,6 +17,8 @@ class MovieVeiwModel : ViewModel() {
     private val _status = MutableLiveData<MoviesApiStatus>()
     val status: LiveData<MoviesApiStatus> = _status
 
+    val movieId = MutableLiveData<Int>()
+
     val movieTitle = MutableLiveData<String>()
 
     val movieDetail = MutableLiveData<String>()
@@ -92,5 +94,6 @@ class MovieVeiwModel : ViewModel() {
         moviePoster.value = item?.posterPath
         movieTitle.value = item?.originalTitle
         movieDetail.value = item?.overview
+        movieId.value = item?.id
     }
 }

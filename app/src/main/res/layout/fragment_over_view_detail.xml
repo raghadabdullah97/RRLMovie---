@@ -4,17 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="movieVeiwModel"
             type="com.example.rrlmovie.overview.MovieVeiwModel" />
-
         <variable
             name="overViewDetailFragment"
             type="com.example.rrlmovie.overview.OverViewDetailFragment" />
-
     </data>
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,8 +19,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/black"
-            >
+            android:background="@color/black">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -38,21 +33,6 @@
                     android:adjustViewBounds="true"
                     app:photoUrl="@{movieVeiwModel.moviePoster}" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/rate_id"-->
-<!--                    android:layout_width="78dp"-->
-<!--                    android:layout_height="22dp"-->
-<!--                    android:layout_alignParentStart="true"-->
-<!--                    android:layout_alignParentEnd="true"-->
-<!--                    android:layout_marginStart="78dp"-->
-<!--                    android:layout_marginTop="5dp"-->
-<!--                    android:layout_marginEnd="255dp"-->
-<!--                    android:layout_marginBottom="5dp"-->
-<!--                    android:text="@{movieVeiwModel.movieVoteAverage}"-->
-<!--                    android:textAlignment="center"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:layout_constraintHorizontal_bias="0.345"-->
-<!--                    app:layout_constraintVertical_bias="0.0" />-->
 
                 <TextView
                     android:id="@+id/titleDetail"
@@ -77,9 +57,20 @@
                     android:padding="7dp"
                     android:text="@{movieVeiwModel.movieDetail}"
                     android:textColor="@color/white"
-
                     android:textSize="20sp"
                     android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/shareButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/decriptionDetails"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:onClick="@{()->overViewDetailFragment.onClickGotosite(movieVeiwModel.movieId)}"
+                    android:src="@drawable/ic_baseline_share_24"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:contentDescription="@string/go_to_the_movie_page" />
             </RelativeLayout>
 
         </ScrollView>

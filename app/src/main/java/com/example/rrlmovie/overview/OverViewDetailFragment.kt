@@ -1,5 +1,7 @@
 package com.example.rrlmovie.overview
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.rrlmovie.R
 import com.example.rrlmovie.databinding.FragmentOverViewDetailBinding
-
+const val  movieStie = "https://www.themoviedb.org/movie/"
 class OverViewDetailFragment : Fragment() {
+
 
     var binding : FragmentOverViewDetailBinding? = null
     private val viewModel: MovieVeiwModel by activityViewModels()
@@ -22,6 +25,7 @@ class OverViewDetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param = it.getInt("id")
+
         }
     }
     /**
@@ -43,5 +47,14 @@ class OverViewDetailFragment : Fragment() {
         binding?.overViewDetailFragment = this@OverViewDetailFragment
 
         viewModel.getMovieInfo(param)
+    }
+
+    /**
+     * go to the movie page based on its id
+     */
+    fun  onClickGotosite(value:Int){
+        val queryUrl: Uri = Uri.parse("${movieStie}${value}")
+        val intent = Intent(Intent.ACTION_VIEW, queryUrl)
+        context?.startActivity(intent)
     }
 }
