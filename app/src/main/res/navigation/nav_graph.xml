@@ -15,7 +15,8 @@
             app:argType="integer" />
         <action
             android:id="@+id/action_overViewDetailFragment_to_overViewFragment2"
-            app:destination="@id/overViewFragment" />
+            app:destination="@id/overViewFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/overViewFragment"
@@ -23,6 +24,7 @@
         android:label="Movies " >
         <action
             android:id="@+id/action_overViewFragment_to_overViewDetailFragment"
-            app:destination="@id/overViewDetailFragment" />
+            app:destination="@id/overViewDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
 </navigation>
