@@ -1,15 +1,22 @@
-﻿<h1 align="center">Movie App</h1>
+<h1 align="center">Movie App</h1>
 <p align="center">
 
 ## Introduction
   
-<b>Movie App</b> is a Mobile application that can be used to see list & detail of the movies . Users that can search movie .
+<b>Movie App</b> This a group project that takes list of movies from TheMovieDB API and show it as a useerFrindly grid list with navigation features  .
 
 
 
 
 # Components Used
-- View Models & Live Data 
+- MVVM & LiveData with DataBinding
+-Fragments & BindingAdapter
+-Navigation Graoh to navigate between fragments
+-Using RecyclerView and a grid adapter
+-Error handling in the recyclerView
+-Retrofit and Moshi libraries for retriving the Data from the Internet
+- Coil library to load and display an image from a web URL.
+
 
 
 
@@ -17,7 +24,7 @@
 
 - Users can see list movies .
 - Users can see detail a movie 
-- Users can search movie and others
+- Users can sort movies 
 - Option to filter out movies based on genre like action, horror, documentary etc. 
 
 # Libraries Included
@@ -27,7 +34,6 @@
 - Coil
 
   
-  
 ## Screenshot
   
   ![m1](https://user-images.githubusercontent.com/92260336/144586025-33f71a50-b142-413f-95db-b9b93f3861dd.PNG)
@@ -35,8 +41,15 @@
 ![m3](https://user-images.githubusercontent.com/92260336/144587572-0cec7297-9c5e-49fb-8635-db9bce666de5.PNG)
 ![m4](https://user-images.githubusercontent.com/92260336/144587581-da68154f-edf2-4ba3-b8f1-ce32bec097f5.PNG)
   
+## Contact
 
-https://user-images.githubusercontent.com/92260336/144692318-44672823-5722-4cfb-a3a3-8a644c8d2a9b.mp4
+<b>Created by Group 6</b>
+
+-[@raghadabdullah97](https://github.com/raghadabdullah97)
+
+-[@manalmohammed3](https://github.com/manalmohammed3)
+
+-[@RMSAJ](https://github.com/RMSAJ)
 
 
   
